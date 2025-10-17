@@ -8,6 +8,8 @@ import Animated, {
 } from 'react-native-reanimated';
 import { Gesture, GestureDetector } from 'react-native-gesture-handler';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { StatusBar } from 'react-native';
 
 export default function GestureDemo() {
   const translateX = useSharedValue(0);
@@ -47,16 +49,3 @@ const styles = StyleSheet.create({
     marginTop: 80,
   },
 });
-
-
-
-export default function GestureApp() {
-  return (
-    <GestureHandlerRootView style={{ flex: 1 }}>
-      <StatusBar barStyle="dark-content" />
-      <SafeAreaView style={{ flex: 1 }}>
-        <GestureDemo />
-      </SafeAreaView>
-    </GestureHandlerRootView>
-  );
-}
