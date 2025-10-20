@@ -1,19 +1,31 @@
-import { View, Text } from 'react-native'
-import { GestureHandlerRootView } from 'react-native-gesture-handler'
-import { SafeAreaView } from 'react-native-safe-area-context'
-import { StatusBar } from 'react-native'
-import GestureDemo from './src/dragBox'
-import React from 'react'
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import MovieListScreen from './src/screens/MovieListScreen';
+import MovieDetailScreen from './src/screens/MovieDetailScreen';
 
-const App = () => {
+export type RootStackParamList = {
+  MovieList: undefined;
+  MovieDetail: { id: string; title?: string };
+};
+
+const Stack = createNativeStackNavigator<RootStackParamList>();
+
+export default function App() {
   return (
-    <GestureHandlerRootView style={{ flex: 1 }}>
-      <StatusBar barStyle="dark-content" />
-      <SafeAreaView style={{ flex: 1 }}>
-        <GestureDemo />
-      </SafeAreaView>
-    </GestureHandlerRootView>
-  )
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="MovieList">
+        <Stack.Screen
+          name="MovieList"
+          component={MovieListScreen}
+          options={{ title: 'Movies' }}
+        />
+        <Stack.Screen
+          name="MovieDetail"
+          component={MovieDetailScreen}
+          options={({ route }) => ({ title: route.params?.title || 'Detail' })}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
 }
-
-export default App
