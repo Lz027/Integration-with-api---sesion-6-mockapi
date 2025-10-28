@@ -4,8 +4,9 @@ import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { getFilms, Film } from '../api/data';
 import MovieCard from '../components/MovieCard';
 import type { RootStackParamList } from '../../App';
+import type { MovieStackParamList } from './MovieStack';
 
-type Props = NativeStackScreenProps<RootStackParamList, 'MovieList'>;
+type Props = NativeStackScreenProps<MovieStackParamList, 'MovieList'>;
 
 export default function MovieListScreen({ navigation }: Props) {
   const [data, setData] = useState<Film[]>([]);

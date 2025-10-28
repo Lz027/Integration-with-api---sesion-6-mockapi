@@ -1,31 +1,51 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import MovieListScreen from './src/screens/MovieListScreen';
-import MovieDetailScreen from './src/screens/MovieDetailScreen';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import MovieStack from './src/screens/MovieStack';
+import SongListScreen from './src/screens/SongListScreen';
+import { Text } from 'react-native';
 
-export type RootStackParamList = {
-  MovieList: undefined;
-  MovieDetail: { id: string; title?: string };
+// Define the parameter list for the root Tab Navigator
+export type RootTabParamList = {
+  Movies: undefined;
+  Songs: undefined;
 };
 
-const Stack = createNativeStackNavigator<RootStackParamList>();
+const Tab = createBottomTabNavigator<RootTabParamList>();
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="MovieList">
-        <Stack.Screen
-          name="MovieList"
-          component={MovieListScreen}
-          options={{ title: 'Movies' }}
+      <Tab.Navigator
+        initialRouteName="Movies"
+        screenOptions={{
+          headerShown: false, // Hide header for the tab navigator, as it's handled by the nested stack
+        }}
+      >
+        <Tab.Screen
+          name="Movies"
+          component={MovieStack}
+          options={{
+            tabBarLabel: 'Movies',
+            // Simple icon placeholder for demonstration
+            tabBarIcon: ({ color, size }) => (
+              <Text style={{ color, fontSize: size }}>🎬</Text>
+            ),
+          }}
         />
-        <Stack.Screen
-          name="MovieDetail"
-          component={MovieDetailScreen}
-          options={({ route }) => ({ title: route.params?.title || 'Detail' })}
+        <Tab.Screen
+          name="Songs"
+          component={SongListScreen}
+          options={{
+            title: 'Song List', // Title for the header on this screen
+            tabBarLabel: 'Songs',
+            // Simple icon placeholder for demonstration
+            tabBarIcon: ({ color, size }) => (
+              <Text style={{ color, fontSize: size }}>🎶</Text>
+            ),
+          }}
         />
-      </Stack.Navigator>
+      </Tab.Navigator>
     </NavigationContainer>
   );
 }

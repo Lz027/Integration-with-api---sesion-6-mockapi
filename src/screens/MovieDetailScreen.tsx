@@ -3,8 +3,9 @@ import { View, Text, Image, ScrollView, ActivityIndicator, StyleSheet } from 're
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { getFilmById, Film } from '../api/data';
 import type { RootStackParamList } from '../../App';
+import type { MovieStackParamList } from './MovieStack';
 
-type Props = NativeStackScreenProps<RootStackParamList, 'MovieDetail'>;
+type Props = NativeStackScreenProps<MovieStackParamList, 'MovieDetail'>;
 
 export default function MovieDetailScreen({ route }: Props) {
   const { id } = route.params;
