@@ -1,3 +1,29 @@
+## Modifications for Mock API Integration
+
+**Goal:** This project was modified by an AI agent to integrate a new mock API endpoint and update the application's functionality.
+
+**Steps Performed:**
+
+1.  **Cloned the original repository:** `https://github.com/Lz027/Integration-with-api---sesion-6-modified.git`
+2.  **Installed Dependencies:** All project dependencies were installed using `npm install`.
+3.  **API Integration:**
+    *   A new mock API endpoint was provided: `https://6901ab8ab208b24affe33ab3.mockapi.io/api/v1/songs`
+    *   The initial instructions included web-based JavaScript (`document.getElementById`) which is incompatible with React Native.
+    *   The code was adapted to the React Native environment in `src/screens/SongListScreen.tsx`.
+    *   The implementation now uses React hooks (`useState`, `useEffect`) to fetch and manage the song data.
+    *   A `FlatList` component is used to display the song data in a performant way.
+4.  **Pushed to New Repository:** The final, modified project was pushed to this new repository.
+
+---
+
+## Modifications for Session 6
+
+**Goal:** Implement a Bottom Tab Navigator to switch between the existing Movie List (Ghibli API) and a new Song List (OpenWhyd API).
+
+**Implemented by:** Ahmed Masoud Baghni (20230040030)
+
+---
+
 This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 
 # Getting Started
@@ -95,27 +121,3 @@ To learn more about React Native, take a look at the following resources:
 - [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
 - [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
 - [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
-
-
----
-## Modifications for Session 6
-
-**Goal:** Implement a Bottom Tab Navigator to switch between the existing Movie List (Ghibli API) and a new Song List (OpenWhyd API).
-
-**Implemented by:** Ahmed Masoud Baghni (20230040030)
----
-## Modifications for Mock API Integration
-
-**Goal:** This project was modified by an AI agent to integrate a new mock API endpoint and update the application's functionality.
-
-**Steps Performed:**
-
-1.  **Cloned the original repository:** `https://github.com/Lz027/Integration-with-api---sesion-6-modified.git`
-2.  **Installed Dependencies:** All project dependencies were installed using `npm install`.
-3.  **API Integration:**
-    *   A new mock API endpoint was provided: `https://6901ab8ab208b24affe33ab3.mockapi.io/api/v1/songs`
-    *   The initial instructions included web-based JavaScript (`document.getElementById`) which is incompatible with React Native.
-    *   The code was adapted to the React Native environment in `src/screens/SongListScreen.tsx`.
-    *   The implementation now uses React hooks (`useState`, `useEffect`) to fetch and manage the song data.
-    *   A `FlatList` component is used to display the song data in a performant way.
-4.  **Pushed to New Repository:** The final, modified project was pushed to this new repository.
